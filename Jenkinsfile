@@ -24,13 +24,13 @@ pipeline{
         }
         stage('Build and tag'){
             steps{
-                sh 'docker build -t rameshbr1999/project-1 .'
+                sh 'docker build -t rameshbr1999/project-2 .'
             }
         }
         stage('Containerisation'){
             steps{
                 sh '''
-                docker run -it -d --name c7 -p 9008:8080 rameshbr1999/project-1
+                docker run -it -d --name c7 -p 9008:8080 rameshbr1999/project-2
                 '''
             }
         }
@@ -45,7 +45,7 @@ pipeline{
         }
          stage('Pushing image to repository'){
             steps{
-                sh 'docker push rameshbr1999/project-1'
+                sh 'docker push rameshbr1999/project-2'
             }
         }
         
